@@ -26,6 +26,15 @@ package by.itstep.javatraining.revision.task;
 
 public class Task03 {
     public static String task03(int number) {
-        return "?";
+        if (number < 1) {
+            return "0";
+        }
+        StringBuilder line = new StringBuilder();
+        int power = 1;
+        while (power <= number) {
+            line.append(" ").append(power);
+            power *= 2;
+        }
+        return line.toString().trim();
     }
 }

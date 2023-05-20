@@ -29,6 +29,28 @@ package by.itstep.javatraining.revision.task;
 
 public class Task02 {
     public static boolean task02(int number) {
-        return false;
+        if (number < 1) {
+            return false;
+        }
+
+        // option with loop
+        while (number > 1) {
+            if (number % 2 != 0) {
+                return false;
+            }
+            number /= 2;
+        }
+        return true;
     }
+    // second option: line solution
+
+    // return (Math.log(number) / Math.log(2)) % 1 == 0;
+
+    // third option with recursion
+
+//        if (number == 1) {
+//            return true;
+//        }
+//        return (number % 2 == 0) && task02(number / 2);
+    //   }
 }

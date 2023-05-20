@@ -30,6 +30,22 @@ package by.itstep.javatraining.revision.task;
 
 public class Task10 {
     public static int task10(long number) {
-        return 0;
+        if (number < 0) {
+            number = -number;
+        }
+        String lineNumber = String.valueOf(number);
+        int currentCount = 1;
+        int maxCount = 1;
+        for (int i = 1; i < lineNumber.length(); i++) {
+            if (lineNumber.charAt(i) == lineNumber.charAt(i - 1)) {
+                currentCount++;
+                if (currentCount > maxCount) {
+                    maxCount = currentCount;
+                }
+            } else {
+                currentCount = 1;
+            }
+        }
+        return maxCount;
     }
 }

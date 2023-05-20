@@ -40,6 +40,24 @@ package by.itstep.javatraining.revision.task;
 
 public class Task04 {
     public static long task04(int number) {
-        return 0;
+        if (number < 1) {
+            return -1;
+        }
+        if (number == 1) {
+            return 0;
+        }
+        if (number == 2 || number == 3) {
+            return 1;
+        }
+        long prevPrev = 1;
+        long prev = 1;
+        long current;
+
+        for (int i = 3; i <= number; i++) {
+            current = prevPrev + prev;
+            prevPrev = prev;
+            prev = current;
+        }
+        return prevPrev;
     }
 }

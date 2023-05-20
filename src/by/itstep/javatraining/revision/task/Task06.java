@@ -29,6 +29,26 @@ package by.itstep.javatraining.revision.task;
 
 public class Task06 {
     public static int task06(long number) {
-        return 0;
+        if (number < 0) {
+            number = -number;
+        }
+        long saveNumber = number;
+        long min = number / 10 % 10;
+        while (number > 0) {
+            long digit = number % 10;
+            if (digit < min) {
+                min = digit;
+            }
+            number /= 10;
+        }
+        int count = 0;
+        while (saveNumber > 0) {
+            long digit = saveNumber % 10;
+            if (digit == min) {
+                count++;
+            }
+            saveNumber /= 10;
+        }
+        return count == 0 ? 1 : count;
     }
 }

@@ -27,6 +27,35 @@ package by.itstep.javatraining.revision.task;
 
 public class Task07 {
     public static int task07(long number) {
-        return 0;
+        if (number / 10 == 0) {
+            return -1;
+        }
+        if (number < 0) {
+            number = -number;
+        }
+
+        String lengthNumber = String.valueOf(number);
+
+        long max = number / 10 % 10;
+
+        long prevNumber = number % 10;
+        int count = 0;
+
+        while (number > 0) {
+            long digit = number % 10;
+            if (digit == 9) {
+                max = 8;
+            }
+            if (digit > max) {
+                prevNumber = max;
+                max = digit;
+            }
+            if (prevNumber == digit) {
+                count++;
+            }
+            number /= 10;
+        }
+
+        return count != lengthNumber.length() ? (int) prevNumber : -1;
     }
 }

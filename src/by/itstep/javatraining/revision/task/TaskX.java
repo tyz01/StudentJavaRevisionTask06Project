@@ -32,6 +32,23 @@ package by.itstep.javatraining.revision.task;
 
 public class TaskX {
     public static boolean taskX(long number) {
-        return false;
+        if (number < 0) {
+            number = -number;
+        }
+        boolean isUnique = true;
+        String lineNumber = String.valueOf(number);
+        int currentCount = 0;
+        for (int i = 0; i < lineNumber.length(); i++) {
+            for (int j = i + 1; j < lineNumber.length(); j++) {
+                if (lineNumber.charAt(i) == lineNumber.charAt(j)) {
+                    currentCount++;
+                }
+            }
+            if (currentCount > 0) {
+                return false;
+            }
+        }
+        return isUnique;
     }
+
 }

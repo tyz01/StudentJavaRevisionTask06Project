@@ -27,6 +27,28 @@ package by.itstep.javatraining.revision.task;
 
 public class Task05 {
     public static int task05(long number) {
-        return 0;
+        if (number < 0) {
+            number = -number;
+        }
+        int max = (int) number / 10 % 10;
+
+        while (number > 0) {
+            long digit = number % 10;
+            if (digit > max) {
+                max = (int) digit;
+            }
+            number /= 10;
+        }
+        return max;
     }
+    // second option
+//        String lineNumber = String.valueOf(number);
+//       char maxTemp = lineNumber.charAt(0);
+//        for (int i = 0; i < lineNumber.length(); i++) {
+//            if(maxTemp < lineNumber.charAt(i)){
+//                maxTemp = lineNumber.charAt(i);
+//            }
+//        }
+//        return Character.getNumericValue(maxTemp);
+//    }
 }

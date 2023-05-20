@@ -33,6 +33,17 @@ package by.itstep.javatraining.revision.task;
 
 public class Task09 {
     public static int task09(long number) {
-        return 0;
+        if (number < 0) {
+            number = -number;
+        }
+        String lineNumber = String.valueOf(number);
+        int count = 0;
+        for (int i = 1; i < lineNumber.length() - 1; i++) {
+            if (lineNumber.charAt(i) > lineNumber.charAt(i + 1)
+                    && lineNumber.charAt(i) > lineNumber.charAt(i - 1)) {
+                count++;
+            }
+        }
+        return count;
     }
 }
